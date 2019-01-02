@@ -1,2 +1,2 @@
-# docker_frp
-基于docker的frp镜像
+# docker_frpc
+基于docker的frp_client镜像
