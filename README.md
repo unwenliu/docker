@@ -1,7 +1,7 @@
 # docker_frpc
-frpc的docker镜像
+frp_client的docker镜像
 
 ## 使用方法
 ```bash
-docker run -d --name frpc -v /etc/frpc/:/conf --net=host frpc:0.22.0
+docker run -d --name frpc -v /etc/frpc/:/conf --net=host unwenliu/frpc:0.22.0
 ```
