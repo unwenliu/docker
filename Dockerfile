@@ -1,11 +1,13 @@
-FROM busybox
+FROM busybox:1.30
 
-ENV FRP_VERSION 0.28.0
-RUN wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz \
-&& tar -zxf frp_${FRP_VERSION}_linux_amd64.tar.gz \
+ARG FRP_VERSION=0.28.0
+ARG ARCH=arm64
+
+RUN wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_${ARCH}.tar.gz \
+&& tar -zxf frp_${FRP_VERSION}_linux_${ARCH}.tar.gz \
 && mkdir /frpc \
-&& cp frp_${FRP_VERSION}_linux_amd64/frpc* /frpc/ \
-&& rm -rf frp_${FRP_VERSION}_linux_amd64*
+&& cp frp_${FRP_VERSION}_linux_${ARCH}/frpc* /frpc/ \
+&& rm -rf frp_${FRP_VERSION}_linux_${ARCH}*
 
 RUN mkdir /conf
 VOLUME /conf
